@@ -1,0 +1,15 @@
+name: Data Validation CI
+on: [push] # Runs whenever you push code
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: pip install pandas
+      - name: Run validation script
+        run: python validation_script.py # Ensure your script is named this
